@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YPI Darussunah — SD, SMP, SMA Islam Plus Al-Hanif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   ✏️ EDIT WARNA WEBSITE DI SINI
+   Ganti kode warna (#xxxxxx) sesuai kebutuhan.
+   Gunakan tool seperti coolors.co untuk pilih kombinasi warna.
+═══════════════════════════════════════════════════════ */
+:root {
+  --green-900: #0f2a1f;   /* Hijau paling gelap (footer) */
+  --green-800: #1a3d2e;   /* Hijau utama (tombol, header) */
+  --green-700: #245440;   /* Hijau medium */
+  --green-100: #e8efe9;   /* Hijau muda */
+  --gold: #c9a96a;        /* Aksen emas */
+  --gold-dark: #a8884a;   /* Aksen emas gelap */
+  --cream: #faf7f2;       /* Background krem */
+  --cream-dark: #f0ebe0;  /* Krem gelap */
+  --ink: #1a1a1a;         /* Warna teks utama */
+  --ink-muted: #5a5a5a;   /* Warna teks sekunder */
+  --line: #d8d2c4;        /* Warna garis pembatas */
+  --white: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+.serif { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.02em; }
+.italic { font-style: italic; }
+
+/* ============ NAVIGATION ============ */
+nav.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  cursor: pointer; text-decoration: none; color: var(--ink);
+}
+.logo-mark {
+  width: 38px; height: 38px;
+  background: var(--green-800);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  font-family: 'Fraunces', serif;
+  font-weight: 600; font-size: 18px;
+  font-style: italic;
+}
+.logo-text { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.1; }
+.logo-text small { display: block; font-family: 'Manrope', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; margin-top: 2px; }
+
+.nav-links { display: flex; gap: 4px; align-items: center; }
+.nav-link {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 500;
+  color: var(--ink); padding: 8px 16px;
+  border-radius: 100px; transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+.nav-link:hover { background: var(--cream-dark); }
+.nav-link.active { background: var(--green-800); color: var(--cream); }
+
+.cta-nav {
+  background: var(--green-800); color: var(--cream);
+  border: none; padding: 10px 20px; border-radius: 100px;
+  font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600;
+  cursor: pointer; letter-spacing: 0.02em;
+  display: flex; align-items: center; gap: 8px;
+  transition: all 0.2s;
+}
+.cta-nav:hover { background: var(--green-900); transform: translateY(-1px); }
+.cta-nav::after { content: '→'; font-size: 14px; }
+
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 24px; color: var(--ink); }
+
+/* ============ PAGE CONTAINER ============ */
+.page { display: none; padding-top: 90px; animation: fadeIn 0.4s ease; }
+.page.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+.narrow { max-width: 880px; margin: 0 auto; padding: 0 48px; }
+
+/* ============ HOMEPAGE HERO ============ */
+.hero {
+  position: relative; padding: 80px 0 120px;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 80px; align-items: center;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--green-800); font-weight: 600; margin-bottom: 28px;
+}
+.eyebrow::before {
+  content: ''; width: 32px; height: 1px; background: var(--gold);
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 300; line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin-bottom: 32px;
+  color: var(--ink);
+}
+.hero h1 em {
+  font-style: italic; color: var(--green-800);
+  font-weight: 400;
+}
+.hero p.lead {
+  font-size: 18px; line-height: 1.6;
+  color: var(--ink-muted); max-width: 480px; margin-bottom: 40px;
+}
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.btn-primary {
+  background: var(--green-800); color: var(--cream);
+  border: none; padding: 16px 28px; border-radius: 100px;
+  font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600;
+  cursor: pointer; letter-spacing: 0.02em;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: all 0.3s;
+}
+.btn-primary:hover { background: var(--green-900); transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(15, 42, 31, 0.4); }
+.btn-secondary {
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--line); padding: 16px 28px; border-radius: 100px;
+  font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600;
+  cursor: pointer; letter-spacing: 0.02em;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { background: var(--white); border-color: var(--ink); }
+
+.hero-visual {
+  position: relative; aspect-ratio: 4/5;
+  border-radius: 8px; overflow: hidden;
+}
+.hero-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15, 42, 31, 0.3) 100%);
+}
+.hero-stat {
+  position: absolute; bottom: 32px; left: 32px; right: 32px;
+  background: rgba(250, 247, 242, 0.95); backdrop-filter: blur(8px);
+  padding: 24px; border-radius: 4px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+}
+.hero-stat-item { text-align: center; padding: 0 12px; border-right: 1px solid var(--line); }
+.hero-stat-item:last-child { border-right: none; }
+.hero-stat-num { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; color: var(--green-800); line-height: 1; }
+.hero-stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-top: 6px; font-weight: 500; }
+
+/* ============ SECTION STYLES ============ */
+section { padding: 100px 0; }
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--green-800); font-weight: 600; margin-bottom: 20px;
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 300; line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+.section-title em { font-style: italic; color: var(--green-800); font-weight: 400; }
+.section-lead { font-size: 17px; color: var(--ink-muted); max-width: 600px; margin-bottom: 60px; line-height: 1.7; }
+
+/* ============ SCHOOL LEVELS CARDS ============ */
+.levels { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.levels-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line);
+}
+.level-card {
+  background: var(--white); padding: 48px 40px;
+  display: flex; flex-direction: column;
+  min-height: 480px;
+  cursor: pointer; transition: all 0.4s;
+  position: relative; overflow: hidden;
+}
+.level-card:hover { background: var(--cream); }
+.level-card-num {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 14px; color: var(--gold-dark);
+  letter-spacing: 0.05em; margin-bottom: 32px;
+}
+.level-card-img {
+  width: 100%; aspect-ratio: 5/3;
+  border-radius: 4px; overflow: hidden;
+  margin-bottom: 28px; background: var(--green-100);
+}
+.level-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.level-card:hover .level-card-img img { transform: scale(1.05); }
+.level-card h3 {
+  font-family: 'Fraunces', serif; font-size: 32px;
+  font-weight: 400; letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.level-card-sub { font-size: 13px; color: var(--ink-muted); margin-bottom: 16px; letter-spacing: 0.02em; }
+.level-card p { font-size: 14px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 24px; flex: 1; }
+.level-card-link {
+  font-size: 13px; font-weight: 600; color: var(--green-800);
+  letter-spacing: 0.05em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.level-card-link::after { content: '→'; transition: transform 0.3s; }
+.level-card:hover .level-card-link::after { transform: translateX(4px); }
+
+/* ============ PHILOSOPHY / FEATURES ============ */
+.philosophy { background: var(--green-800); color: var(--cream); }
+.philosophy .section-eyebrow { color: var(--gold); }
+.philosophy .section-title { color: var(--cream); }
+.philosophy .section-title em { color: var(--gold); }
+.philosophy .section-lead { color: rgba(250, 247, 242, 0.7); }
+.philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 40px; }
+.philosophy-item { border-top: 1px solid rgba(201, 169, 106, 0.3); padding-top: 32px; }
+.philosophy-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--gold); margin-bottom: 16px; }
+.philosophy-item h4 { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400; margin-bottom: 12px; }
+.philosophy-item p { font-size: 14px; color: rgba(250, 247, 242, 0.65); line-height: 1.7; }
+
+/* ============ NEWS PREVIEW ============ */
+.news-preview-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 32px; margin-top: 40px; }
+.news-card { cursor: pointer; transition: all 0.3s; }
+.news-card-img {
+  aspect-ratio: 4/3; border-radius: 4px; overflow: hidden;
+  margin-bottom: 20px; background: var(--cream-dark);
+}
+.news-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.news-card:hover .news-card-img img { transform: scale(1.05); }
+.news-card.featured .news-card-img { aspect-ratio: 5/4; }
+.news-tag { display: inline-block; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-800); font-weight: 600; margin-bottom: 12px; }
+.news-card h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; line-height: 1.25; letter-spacing: -0.015em; margin-bottom: 12px; }
+.news-card.featured h4 { font-size: 32px; }
+.news-card p { font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 12px; }
+.news-date { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.05em; }
+
+/* ============ CTA SECTION ============ */
+.cta-section { background: var(--cream-dark); padding: 100px 0; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before {
+  content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201, 169, 106, 0.15), transparent 70%);
+  pointer-events: none;
+}
+.cta-section .container { position: relative; }
+.cta-section h2 { font-family: 'Fraunces', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 300; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.cta-section h2 em { font-style: italic; color: var(--green-800); }
+.cta-section p { font-size: 17px; color: var(--ink-muted); max-width: 540px; margin: 0 auto 40px; line-height: 1.7; }
+
+/* ============ ABOUT PAGE ============ */
+.about-hero { padding: 60px 0 80px; }
+.about-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+.about-image { aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; }
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-quote { background: var(--green-800); color: var(--cream); padding: 80px 60px; border-radius: 4px; margin: 80px 0; position: relative; }
+.about-quote::before { content: '"'; position: absolute; top: 20px; left: 40px; font-family: 'Fraunces', serif; font-size: 120px; color: var(--gold); line-height: 1; opacity: 0.4; }
+.about-quote blockquote { font-family: 'Fraunces', serif; font-style: italic; font-size: 32px; line-height: 1.3; font-weight: 300; letter-spacing: -0.01em; max-width: 800px; position: relative; z-index: 1; }
+.about-quote cite { display: block; font-family: 'Manrope', sans-serif; font-style: normal; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-top: 32px; }
+.timeline { margin: 80px 0; }
+.timeline-item { display: grid; grid-template-columns: 200px 1fr; gap: 60px; padding: 40px 0; border-top: 1px solid var(--line); }
+.timeline-year { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 300; color: var(--green-800); letter-spacing: -0.02em; }
+.timeline-content h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; margin-bottom: 10px; }
+.timeline-content p { color: var(--ink-muted); font-size: 15px; line-height: 1.7; max-width: 600px; }
+
+.values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 60px 0; }
+.value-item { background: var(--cream); padding: 48px; }
+.value-icon { width: 40px; height: 40px; border: 1px solid var(--green-800); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-style: italic; color: var(--green-800); margin-bottom: 24px; }
+.value-item h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; margin-bottom: 12px; }
+.value-item p { color: var(--ink-muted); font-size: 15px; line-height: 1.7; }
+
+/* ============ SCHOOL DETAIL PAGE ============ */
+.school-hero { padding: 60px 0; }
+.school-hero-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+.school-badge { display: inline-block; padding: 8px 16px; background: var(--green-100); color: var(--green-800); border-radius: 100px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 24px; }
+.school-image { aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; }
+.school-image img { width: 100%; height: 100%; object-fit: cover; }
+.school-meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 60px 0; }
+.school-meta-item { background: var(--cream); padding: 32px 28px; }
+.school-meta-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px; font-weight: 500; }
+.school-meta-value { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; color: var(--green-800); letter-spacing: -0.02em; }
+.school-meta-sub { font-size: 13px; color: var(--ink-muted); margin-top: 4px; }
+.curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 80px 0; }
+.curriculum-list { list-style: none; }
+.curriculum-list li { padding: 18px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: baseline; }
+.curriculum-list li:last-child { border-bottom: 1px solid var(--line); }
+.curriculum-num { font-family: 'Fraunces', serif; font-style: italic; color: var(--gold-dark); font-size: 14px; }
+.curriculum-text { font-size: 16px; }
+.curriculum-text strong { font-weight: 600; display: block; margin-bottom: 4px; }
+.curriculum-text span { font-size: 13px; color: var(--ink-muted); }
+
+/* ============ NEWS PAGE ============ */
+.news-filters { display: flex; gap: 8px; margin: 40px 0 60px; flex-wrap: wrap; }
+.news-filter { background: transparent; border: 1px solid var(--line); padding: 8px 18px; border-radius: 100px; font-family: 'Manrope', sans-serif; font-size: 13px; cursor: pointer; font-weight: 500; transition: all 0.2s; }
+.news-filter:hover { border-color: var(--green-800); }
+.news-filter.active { background: var(--green-800); color: var(--cream); border-color: var(--green-800); }
+.news-list { display: grid; gap: 0; }
+.news-row { display: grid; grid-template-columns: 200px 1fr 240px; gap: 40px; padding: 32px 0; border-top: 1px solid var(--line); align-items: start; cursor: pointer; transition: all 0.3s; }
+.news-row:last-child { border-bottom: 1px solid var(--line); }
+.news-row:hover { background: rgba(255, 255, 255, 0.5); padding-left: 16px; padding-right: 16px; }
+.news-row-date { font-size: 13px; color: var(--ink-muted); letter-spacing: 0.05em; padding-top: 4px; }
+.news-row-content h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; line-height: 1.25; letter-spacing: -0.015em; margin-bottom: 8px; }
+.news-row-content p { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+.news-row-img { aspect-ratio: 4/3; border-radius: 4px; overflow: hidden; background: var(--cream-dark); }
+.news-row-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ============ PPDB PAGE ============ */
+.ppdb-hero { background: linear-gradient(135deg, var(--green-800) 0%, var(--green-900) 100%); color: var(--cream); padding: 100px 0; position: relative; overflow: hidden; }
+.ppdb-hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(201, 169, 106, 0.1), transparent 70%); }
+.ppdb-hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: center; position: relative; }
+.ppdb-hero .section-eyebrow { color: var(--gold); }
+.ppdb-hero h1 { font-family: 'Fraunces', serif; font-size: clamp(48px, 6vw, 72px); font-weight: 300; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; }
+.ppdb-hero h1 em { font-style: italic; color: var(--gold); }
+.ppdb-hero p { color: rgba(250, 247, 242, 0.8); font-size: 17px; line-height: 1.7; margin-bottom: 32px; max-width: 540px; }
+.ppdb-countdown { background: rgba(250, 247, 242, 0.05); border: 1px solid rgba(201, 169, 106, 0.3); border-radius: 4px; padding: 32px; }
+.ppdb-countdown-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 600; }
+.countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.countdown-box { text-align: center; padding: 16px 8px; border: 1px solid rgba(201, 169, 106, 0.3); border-radius: 4px; }
+.countdown-num { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 400; color: var(--cream); line-height: 1; }
+.countdown-unit { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250, 247, 242, 0.6); margin-top: 6px; }
+
+.ppdb-steps { padding: 100px 0; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+.step-card { padding: 32px 0; border-top: 2px solid var(--green-800); }
+.step-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--gold-dark); margin-bottom: 16px; }
+.step-card h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; margin-bottom: 12px; line-height: 1.25; }
+.step-card p { font-size: 14px; color: var(--ink-muted); line-height: 1.7; }
+
+.requirements-section { background: var(--white); padding: 100px 0; border-top: 1px solid var(--line); }
+.req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
+.req-list { list-style: none; }
+.req-list li { padding: 16px 0; border-top: 1px solid var(--line); display: flex; align-items: start; gap: 16px; font-size: 15px; }
+.req-list li:last-child { border-bottom: 1px solid var(--line); }
+.req-check { color: var(--green-800); font-weight: 700; }
+
+/* ============ GALLERY PAGE ============ */
+.gallery-intro { padding: 60px 0 40px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 16px; padding-bottom: 100px; }
+.gallery-item { border-radius: 4px; overflow: hidden; cursor: pointer; position: relative; background: var(--cream-dark); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(15, 42, 31, 0.7)); opacity: 0; transition: opacity 0.3s; }
+.gallery-item:hover::after { opacity: 1; }
+.gallery-caption { position: absolute; bottom: 20px; left: 20px; right: 20px; color: var(--cream); font-size: 13px; opacity: 0; transition: opacity 0.3s; z-index: 1; font-weight: 500; }
+.gallery-item:hover .gallery-caption { opacity: 1; }
+.gallery-item.large { grid-column: span 2; grid-row: span 2; }
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+
+/* ============ CONTACT PAGE ============ */
+.contact-hero { padding: 60px 0 40px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; padding-bottom: 100px; }
+.contact-info { }
+.contact-block { padding: 32px 0; border-top: 1px solid var(--line); }
+.contact-block:last-child { border-bottom: 1px solid var(--line); }
+.contact-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; font-weight: 600; }
+.contact-value { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.01em; }
+.contact-sub { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+.contact-form { background: var(--white); padding: 48px; border-radius: 4px; border: 1px solid var(--line); }
+.contact-form h3 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; margin-bottom: 8px; letter-spacing: -0.02em; }
+.contact-form p { color: var(--ink-muted); font-size: 14px; margin-bottom: 32px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px; font-weight: 600; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid var(--line);
+  background: transparent; font-family: 'Manrope', sans-serif; font-size: 15px;
+  color: var(--ink); transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-bottom-color: var(--green-800); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+
+/* ============ FOOTER ============ */
+footer { background: var(--green-900); color: var(--cream); padding: 80px 0 32px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+footer .logo-text { color: var(--cream); }
+footer .logo-text small { color: var(--gold); }
+footer p.tagline { font-size: 14px; color: rgba(250, 247, 242, 0.6); line-height: 1.7; max-width: 320px; margin-top: 20px; }
+.footer-col h5 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a { color: rgba(250, 247, 242, 0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; cursor: pointer; }
+.footer-col ul li a:hover { color: var(--cream); }
+.footer-bottom { border-top: 1px solid rgba(250, 247, 242, 0.1); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(250, 247, 242, 0.5); }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { color: rgba(250, 247, 242, 0.5); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+.footer-bottom-links a:hover { color: var(--cream); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .hero-grid, .about-hero-grid, .school-hero-grid, .ppdb-hero-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .levels-grid, .news-preview-grid, .philosophy-grid, .steps-grid, .curriculum-grid, .req-grid { grid-template-columns: 1fr; }
+  .news-preview-grid .news-card.featured h4 { font-size: 26px; }
+  .school-meta-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .news-row { grid-template-columns: 120px 1fr; }
+  .news-row-img { display: none; }
+}
+@media (max-width: 720px) {
+  nav.topbar { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .container, .narrow { padding: 0 24px; }
+  .hero { padding: 40px 0 80px; }
+  section { padding: 60px 0; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item.large, .gallery-item.tall, .gallery-item.wide { grid-column: span 1; grid-row: span 1; }
+  .timeline-item { grid-template-columns: 1fr; gap: 16px; }
+  .school-meta-grid, .values-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-quote { padding: 48px 32px; }
+  .about-quote blockquote { font-size: 22px; }
+  .contact-form { padding: 32px 24px; }
+  .footer-bottom { flex-direction: column; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="topbar">
+  <a class="logo" onclick="showPage('home')">
+    <div class="logo-mark">D</div>
+    <div class="logo-text">Darussunah<small>YPI · Yayasan Pendidikan Islam</small></div>
+  </a>
+  <div class="nav-links">
+    <button class="nav-link active" data-page="home" onclick="showPage('home')">Beranda</button>
+    <button class="nav-link" data-page="about" onclick="showPage('about')">Tentang</button>
+    <button class="nav-link" data-page="sd" onclick="showPage('sd')">SD</button>
+    <button class="nav-link" data-page="smp" onclick="showPage('smp')">SMP</button>
+    <button class="nav-link" data-page="sma" onclick="showPage('sma')">SMA</button>
+    <button class="nav-link" data-page="news" onclick="showPage('news')">Berita</button>
+    <button class="nav-link" data-page="gallery" onclick="showPage('gallery')">Galeri</button>
+    <button class="nav-link" data-page="contact" onclick="showPage('contact')">Kontak</button>
+  </div>
+  <button class="cta-nav" onclick="showPage('ppdb')">Daftar PPDB</button>
+  <button class="mobile-toggle">☰</button>
+</nav>
+
+<!-- ============ HOME PAGE ============ -->
+<div class="page active" id="home">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">YPI Darussunah · Tiga Jenjang Pendidikan Islam</div>
+          <h1>Membangun generasi <em>berakhlak mulia</em>, cerdas, dan berdaya saing global.</h1>
+          <p class="lead">YPI Darussunah menaungi SD, SMP, dan SMA Islam Plus Al-Hanif dengan kurikulum nasional yang terintegrasi nilai-nilai Islam, pengembangan karakter, sains, dan literasi digital.</p>
+          <div class="hero-cta">
+            <button class="btn-primary" onclick="showPage('ppdb')">Pendaftaran PPDB 2026 →</button>
+            <button class="btn-secondary" onclick="showPage('about')">Pelajari Yayasan</button>
+          </div>
+        </div>
+          <div class="hero-visual">
+          <!-- ✏️ EDIT FOTO HERO: ganti URL gambar di bawah -->
+            <img src="https://images.unsplash.com/photo-1610484826917-0f101a7a23ea?w=800&q=80" alt="Siswa belajar">
+            <!-- ✏️ EDIT STATISTIK YAYASAN: ubah angka & label di 3 box berikut -->
+            <div class="hero-stat">
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">1,200+</div>
+                <div class="hero-stat-label">Siswa Aktif</div>
+              </div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">40</div>
+                <div class="hero-stat-label">Tahun Pengalaman</div>
+              </div>
+              <div class="hero-stat-item">
+                <div class="hero-stat-num">85+</div>
+                <div class="hero-stat-label">Tenaga Pendidik</div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="levels" style="padding: 0;">
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+      <div class="section-eyebrow">Jenjang Pendidikan</div>
+      <h2 class="section-title">Pendidikan berkelanjutan dari <em>usia dini</em> hingga remaja.</h2>
+      <p class="section-lead">Tiga jenjang yang saling terhubung dengan kurikulum yang dirancang khusus untuk setiap fase perkembangan anak.</p>
+    </div>
+    <div class="container" style="padding-bottom: 100px;">
+      <div class="levels-grid">
+        <div class="level-card" onclick="showPage('sd')">
+          <div class="level-card-num">I.</div>
+          <div class="level-card-img">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="SD Islam Plus Al-Hanif">
+          </div>
+          <h3>SD Islam Plus Al-Hanif</h3>
+          <div class="level-card-sub">Sekolah Dasar · Kelas 1–6</div>
+          <p>Fondasi karakter, literasi, dan numerasi dengan pendekatan pembelajaran menyenangkan dan eksploratif.</p>
+          <span class="level-card-link">Pelajari Lebih Lanjut</span>
+        </div>
+        <div class="level-card" onclick="showPage('smp')">
+          <div class="level-card-num">II.</div>
+          <div class="level-card-img">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="SMP Islam Plus Al-Hanif">
+          </div>
+          <h3>SMP Islam Plus Al-Hanif</h3>
+          <div class="level-card-sub">Sekolah Menengah Pertama · Kelas 7–9</div>
+          <p>Pengembangan minat-bakat, proyek STEAM, dan persiapan kemampuan berpikir kritis menuju jenjang lanjutan.</p>
+          <span class="level-card-link">Pelajari Lebih Lanjut</span>
+        </div>
+        <div class="level-card" onclick="showPage('sma')">
+          <div class="level-card-num">III.</div>
+          <div class="level-card-img">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80" alt="SMA Islam Plus Al-Hanif">
+          </div>
+          <h3>SMA Islam Plus Al-Hanif</h3>
+          <div class="level-card-sub">Sekolah Menengah Atas · Kelas 10–12</div>
+          <p>Program peminatan, bimbingan universitas, dan pembekalan kepemimpinan untuk masa depan global.</p>
+          <span class="level-card-link">Pelajari Lebih Lanjut</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <div class="container">
+      <div class="section-eyebrow">Filosofi Kami</div>
+      <h2 class="section-title">Pendidikan bukan sekadar menghafal — melainkan <em>menumbuhkan manusia.</em></h2>
+      <div class="philosophy-grid">
+        <div class="philosophy-item">
+          <div class="philosophy-num">01 — Akhlak</div>
+          <h4>Berakhlak Mulia</h4>
+          <p>Pendidikan karakter Islami terintegrasi dalam setiap mata pelajaran dengan teladan langsung dari para pendidik.</p>
+        </div>
+        <div class="philosophy-item">
+          <div class="philosophy-num">02 — Kompetensi</div>
+          <h4>Cerdas & Kritis</h4>
+          <p>Kurikulum nasional yang diperkaya dengan project-based learning untuk membangun kemampuan berpikir tingkat tinggi.</p>
+        </div>
+        <div class="philosophy-item">
+          <div class="philosophy-num">03 — Konteks</div>
+          <h4>Berdaya Saing</h4>
+          <p>Literasi digital, bahasa asing, dan paparan budaya global mempersiapkan siswa untuk dunia tanpa batas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-eyebrow">Berita & Pengumuman</div>
+      <h2 class="section-title">Kabar terbaru dari <em>lingkungan sekolah</em>.</h2>
+      <!-- ✏️ EDIT BERITA HOMEPAGE: 1 berita featured (besar) + 2 berita kecil
+           Pola: <div class="news-card"> ... </div>
+           Tambah/hapus card sesuai kebutuhan -->
+      <div class="news-preview-grid">
+        <div class="news-card featured" onclick="showPage('news')">
+          <div class="news-card-img">
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80" alt="Prestasi siswa">
+          </div>
+          <span class="news-tag">Prestasi · Sains</span>
+          <h4>Tim Olimpiade SMA Islam Plus Al-Hanif Raih Medali Emas di OSN Tingkat Nasional</h4>
+          <p>Tiga siswa kami berhasil mengharumkan nama yayasan dalam ajang Olimpiade Sains Nasional yang diselenggarakan di Yogyakarta.</p>
+          <span class="news-date">15 April 2026</span>
+        </div>
+        <div class="news-card" onclick="showPage('news')">
+          <div class="news-card-img">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&q=80" alt="Kegiatan siswa">
+          </div>
+          <span class="news-tag">Pengumuman</span>
+          <h4>PPDB Tahun Ajaran 2026/2027 Resmi Dibuka</h4>
+          <span class="news-date">02 April 2026</span>
+        </div>
+        <div class="news-card" onclick="showPage('news')">
+          <div class="news-card-img">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500&q=80" alt="Kegiatan SD">
+          </div>
+          <span class="news-tag">Kegiatan · SD</span>
+          <h4>Festival Literasi SD Hadirkan 500 Buku Karya Siswa</h4>
+          <span class="news-date">28 Maret 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Bergabunglah dalam perjalanan <em>pendidikan bermakna</em>.</h2>
+      <p>Pendaftaran Peserta Didik Baru untuk Tahun Ajaran 2026/2027 telah dibuka. Daftarkan putra-putri Anda sekarang.</p>
+      <button class="btn-primary" onclick="showPage('ppdb')">Mulai Pendaftaran →</button>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT PAGE ============ -->
+<div class="page" id="about">
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div>
+          <div class="eyebrow">Tentang Yayasan</div>
+          <h1 class="section-title" style="font-size: clamp(40px, 5vw, 64px);">Empat dekade <em>menanam,</em> menumbuhkan generasi.</h1>
+          <p class="section-lead">YPI Darussunah didirikan dengan visi sederhana: menyediakan pendidikan Islam bermutu yang membentuk insan berakhlak mulia, berilmu, dan bermanfaat bagi sesama.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80" alt="Gedung sekolah">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="about-quote">
+        <blockquote>Kami percaya setiap anak adalah amanah dengan potensi unik. Tugas kami adalah menyediakan lingkungan yang menumbuhkan iman, akhlak, dan ilmu — agar mereka tumbuh menjadi insan yang bermanfaat.</blockquote>
+        <cite>— Pendiri YPI Darussunah</cite>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="section-eyebrow">Perjalanan Kami</div>
+      <h2 class="section-title">Empat dekade <em>tonggak penting.</em></h2>
+      <!-- ✏️ EDIT SEJARAH YAYASAN: ganti tahun dan deskripsi sesuai sejarah asli -->
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1985</div>
+          <div class="timeline-content">
+            <h4>Pendirian Yayasan</h4>
+            <p>YPI Darussunah didirikan oleh sekelompok pendidik dan tokoh masyarakat dengan SD Islam Plus Al-Hanif sebagai unit pertama.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1992</div>
+          <div class="timeline-content">
+            <h4>SMP Islam Plus Al-Hanif Berdiri</h4>
+            <p>Menjawab kebutuhan kelanjutan pendidikan lulusan SD, dibukalah jenjang menengah pertama.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2001</div>
+          <div class="timeline-content">
+            <h4>Lengkap dengan SMA</h4>
+            <p>Pendidikan berkelanjutan dari SD hingga SMA resmi tersedia di lingkungan Yayasan.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-content">
+            <h4>Akreditasi A untuk Semua Jenjang</h4>
+            <p>Ketiga sekolah meraih akreditasi tertinggi dari BAN-S/M sebagai pengakuan kualitas mutu pendidikan.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-content">
+            <h4>Transformasi Digital</h4>
+            <p>Implementasi sistem pembelajaran terpadu berbasis digital di seluruh unit sekolah.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="section-eyebrow">Nilai-Nilai Kami</div>
+      <h2 class="section-title">Empat pilar yang <em>menuntun</em> langkah kami.</h2>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">i</div>
+          <h4>Integritas</h4>
+          <p>Kejujuran dan keteladanan menjadi dasar dalam setiap interaksi pendidikan di lingkungan kami.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">e</div>
+          <h4>Eksplorasi</h4>
+          <p>Mendorong rasa ingin tahu dan keberanian bereksperimen sebagai kunci pembelajaran sejati.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">k</div>
+          <h4>Kolaborasi</h4>
+          <p>Membangun budaya bekerja sama antara siswa, guru, orang tua, dan komunitas yang lebih luas.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">a</div>
+          <h4>Adaptif</h4>
+          <p>Terus berkembang mengikuti zaman tanpa kehilangan akar nilai-nilai luhur yang menjadi identitas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SD PAGE ============ -->
+<div class="page" id="sd">
+  <section class="school-hero">
+    <div class="container">
+      <div class="school-hero-grid">
+        <div>
+          <div class="school-badge">Sekolah Dasar</div>
+          <h1 class="section-title" style="font-size: clamp(40px, 5vw, 64px);">SD Islam Plus <em>Al-Hanif</em></h1>
+          <p class="section-lead">Fondasi pendidikan yang menyenangkan dengan pendekatan tematik-integratif, pengembangan karakter, dan keterampilan dasar abad ke-21.</p>
+          <button class="btn-primary" onclick="showPage('ppdb')">Daftar PPDB SD →</button>
+        </div>
+        <div class="school-image">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="SD Islam Plus Al-Hanif">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <!-- ✏️ EDIT STATISTIK SD: akreditasi, jumlah siswa, rasio guru, kurikulum -->
+      <div class="school-meta-grid">
+        <div class="school-meta-item">
+          <div class="school-meta-label">Akreditasi</div>
+          <div class="school-meta-value">A</div>
+          <div class="school-meta-sub">BAN-S/M Unggul</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Jumlah Siswa</div>
+          <div class="school-meta-value">480+</div>
+          <div class="school-meta-sub">18 rombel</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Rasio Guru</div>
+          <div class="school-meta-value">1:18</div>
+          <div class="school-meta-sub">guru : siswa</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Kurikulum</div>
+          <div class="school-meta-value">Merdeka</div>
+          <div class="school-meta-sub">+ Cambridge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="curriculum-grid">
+        <div>
+          <div class="section-eyebrow">Kurikulum</div>
+          <h2 class="section-title" style="font-size: clamp(32px, 4vw, 48px);">Belajar dengan <em>bermakna</em> dan menyenangkan.</h2>
+          <p style="color: var(--ink-muted); font-size: 16px; line-height: 1.7; margin-top: 16px;">Kurikulum SD Islam Plus Al-Hanif dirancang sesuai tahap perkembangan anak — dimulai dari pembelajaran tematik di kelas rendah hingga pengenalan disiplin ilmu di kelas tinggi.</p>
+        </div>
+        <ul class="curriculum-list">
+          <li><span class="curriculum-num">i.</span><div class="curriculum-text"><strong>Tematik Integratif</strong><span>Pembelajaran berbasis tema kontekstual untuk kelas 1–3</span></div></li>
+          <li><span class="curriculum-num">ii.</span><div class="curriculum-text"><strong>STEAM & Project Based</strong><span>Proyek berkala lintas mata pelajaran</span></div></li>
+          <li><span class="curriculum-num">iii.</span><div class="curriculum-text"><strong>Bahasa Inggris & Mandarin</strong><span>Bilingual dengan native speaker</span></div></li>
+          <li><span class="curriculum-num">iv.</span><div class="curriculum-text"><strong>Tahfidz & Pendidikan Karakter</strong><span>Pembentukan akhlak sejak dini</span></div></li>
+          <li><span class="curriculum-num">v.</span><div class="curriculum-text"><strong>Ekstrakurikuler Beragam</strong><span>Seni, olahraga, sains, dan kepemimpinan</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SMP PAGE ============ -->
+<div class="page" id="smp">
+  <section class="school-hero">
+    <div class="container">
+      <div class="school-hero-grid">
+        <div>
+          <div class="school-badge">Sekolah Menengah Pertama</div>
+          <h1 class="section-title" style="font-size: clamp(40px, 5vw, 64px);">SMP Islam Plus <em>Al-Hanif</em></h1>
+          <p class="section-lead">Masa transisi yang krusial dijembatani dengan kurikulum eksploratif, pengembangan minat-bakat, dan pembekalan keterampilan berpikir kritis.</p>
+          <button class="btn-primary" onclick="showPage('ppdb')">Daftar PPDB SMP →</button>
+        </div>
+        <div class="school-image">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=80" alt="SMP Islam Plus Al-Hanif">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="school-meta-grid">
+        <div class="school-meta-item">
+          <div class="school-meta-label">Akreditasi</div>
+          <div class="school-meta-value">A</div>
+          <div class="school-meta-sub">BAN-S/M Unggul</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Jumlah Siswa</div>
+          <div class="school-meta-value">380+</div>
+          <div class="school-meta-sub">12 rombel</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Rasio Guru</div>
+          <div class="school-meta-value">1:16</div>
+          <div class="school-meta-sub">guru : siswa</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Klub</div>
+          <div class="school-meta-value">18+</div>
+          <div class="school-meta-sub">ekstrakurikuler</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="curriculum-grid">
+        <div>
+          <div class="section-eyebrow">Program Unggulan</div>
+          <h2 class="section-title" style="font-size: clamp(32px, 4vw, 48px);">Menggali <em>potensi unik</em> setiap siswa.</h2>
+          <p style="color: var(--ink-muted); font-size: 16px; line-height: 1.7; margin-top: 16px;">SMP Islam Plus Al-Hanif menjembatani masa kanak-kanak menuju remaja melalui program yang menumbuhkan rasa ingin tahu intelektual dan kepedulian sosial.</p>
+        </div>
+        <ul class="curriculum-list">
+          <li><span class="curriculum-num">i.</span><div class="curriculum-text"><strong>Kurikulum Merdeka</strong><span>Pembelajaran berdiferensiasi sesuai minat</span></div></li>
+          <li><span class="curriculum-num">ii.</span><div class="curriculum-text"><strong>Coding & Robotika</strong><span>Literasi digital tingkat lanjut</span></div></li>
+          <li><span class="curriculum-num">iii.</span><div class="curriculum-text"><strong>Public Speaking & Debat</strong><span>Membangun keberanian berkomunikasi</span></div></li>
+          <li><span class="curriculum-num">iv.</span><div class="curriculum-text"><strong>Service Learning</strong><span>Proyek pengabdian komunitas terjadwal</span></div></li>
+          <li><span class="curriculum-num">v.</span><div class="curriculum-text"><strong>Bimbingan Karir</strong><span>Eksplorasi minat-bakat untuk SMA</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SMA PAGE ============ -->
+<div class="page" id="sma">
+  <section class="school-hero">
+    <div class="container">
+      <div class="school-hero-grid">
+        <div>
+          <div class="school-badge">Sekolah Menengah Atas</div>
+          <h1 class="section-title" style="font-size: clamp(40px, 5vw, 64px);">SMA Islam Plus <em>Al-Hanif</em></h1>
+          <p class="section-lead">Persiapan menyeluruh menuju perguruan tinggi terbaik dengan program peminatan, riset siswa, dan bimbingan universitas dalam negeri maupun luar negeri.</p>
+          <button class="btn-primary" onclick="showPage('ppdb')">Daftar PPDB SMA →</button>
+        </div>
+        <div class="school-image">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt="SMA Islam Plus Al-Hanif">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="school-meta-grid">
+        <div class="school-meta-item">
+          <div class="school-meta-label">Akreditasi</div>
+          <div class="school-meta-value">A</div>
+          <div class="school-meta-sub">BAN-S/M Unggul</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Lulusan PTN</div>
+          <div class="school-meta-value">92%</div>
+          <div class="school-meta-sub">tahun 2025</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Peminatan</div>
+          <div class="school-meta-value">3</div>
+          <div class="school-meta-sub">IPA, IPS, Bahasa</div>
+        </div>
+        <div class="school-meta-item">
+          <div class="school-meta-label">Beasiswa</div>
+          <div class="school-meta-value">25+</div>
+          <div class="school-meta-sub">alumni luar negeri</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="curriculum-grid">
+        <div>
+          <div class="section-eyebrow">Program Persiapan</div>
+          <h2 class="section-title" style="font-size: clamp(32px, 4vw, 48px);">Siap menyongsong <em>masa depan</em> global.</h2>
+          <p style="color: var(--ink-muted); font-size: 16px; line-height: 1.7; margin-top: 16px;">SMA Islam Plus Al-Hanif mempersiapkan lulusan dengan kompetensi akademik tinggi, karakter kuat, dan kesiapan menghadapi tantangan dunia internasional.</p>
+        </div>
+        <ul class="curriculum-list">
+          <li><span class="curriculum-num">i.</span><div class="curriculum-text"><strong>Peminatan IPA / IPS / Bahasa</strong><span>Sesuai dengan rencana karir siswa</span></div></li>
+          <li><span class="curriculum-num">ii.</span><div class="curriculum-text"><strong>Bimbingan UTBK & SNBP</strong><span>Tryout intensif menuju PTN</span></div></li>
+          <li><span class="curriculum-num">iii.</span><div class="curriculum-text"><strong>University Counseling</strong><span>Pendampingan aplikasi luar negeri</span></div></li>
+          <li><span class="curriculum-num">iv.</span><div class="curriculum-text"><strong>Riset & Karya Ilmiah</strong><span>Pengalaman penelitian mandiri</span></div></li>
+          <li><span class="curriculum-num">v.</span><div class="curriculum-text"><strong>Kepemimpinan Siswa</strong><span>OSIS, MUN, dan organisasi</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ NEWS PAGE ============ -->
+<div class="page" id="news">
+  <section style="padding: 60px 0 40px;">
+    <div class="container">
+      <div class="section-eyebrow">Berita & Pengumuman</div>
+      <h1 class="section-title">Yang sedang <em>terjadi</em> di Al-Hanif.</h1>
+      <p class="section-lead">Update terbaru kegiatan, prestasi, dan pengumuman dari ketiga jenjang sekolah kami.</p>
+      <div class="news-filters">
+        <button class="news-filter active">Semua</button>
+        <button class="news-filter">Pengumuman</button>
+        <button class="news-filter">Prestasi</button>
+        <button class="news-filter">Kegiatan</button>
+        <button class="news-filter">SD</button>
+        <button class="news-filter">SMP</button>
+        <button class="news-filter">SMA</button>
+      </div>
+      <!-- ✏️ EDIT DAFTAR BERITA: tambah/hapus <div class="news-row"> sesuai kebutuhan -->
+      <div class="news-list">
+        <div class="news-row">
+          <div class="news-row-date">15 April 2026</div>
+          <div class="news-row-content">
+            <span class="news-tag">Prestasi · SMA</span>
+            <h4>Tim Olimpiade SMA Islam Plus Al-Hanif Raih Medali Emas di OSN Tingkat Nasional</h4>
+            <p>Tiga siswa kelas XI berhasil mengharumkan nama yayasan dalam ajang Olimpiade Sains Nasional di bidang Fisika, Kimia, dan Biologi.</p>
+          </div>
+          <div class="news-row-img"><img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=80" alt=""></div>
+        </div>
+        <div class="news-row">
+          <div class="news-row-date">02 April 2026</div>
+          <div class="news-row-content">
+            <span class="news-tag">Pengumuman</span>
+            <h4>PPDB Tahun Ajaran 2026/2027 Resmi Dibuka</h4>
+            <p>Pendaftaran peserta didik baru untuk jenjang SD, SMP, dan SMA telah dibuka mulai 1 April hingga 30 Juni 2026.</p>
+          </div>
+          <div class="news-row-img"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80" alt=""></div>
+        </div>
+        <div class="news-row">
+          <div class="news-row-date">28 Maret 2026</div>
+          <div class="news-row-content">
+            <span class="news-tag">Kegiatan · SD</span>
+            <h4>Festival Literasi SD Hadirkan 500 Buku Karya Siswa</h4>
+            <p>Acara tahunan SD Islam Plus Al-Hanif menampilkan karya tulis dan ilustrasi dari siswa kelas 1 hingga 6 dalam pameran terbuka.</p>
+          </div>
+          <div class="news-row-img"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&q=80" alt=""></div>
+        </div>
+        <div class="news-row">
+          <div class="news-row-date">20 Maret 2026</div>
+          <div class="news-row-content">
+            <span class="news-tag">Kegiatan · SMP</span>
+            <h4>Proyek Robotika SMP Lolos Kompetisi Tingkat Provinsi</h4>
+            <p>Robot pemilah sampah otomatis karya tim SMP Islam Plus Al-Hanif melaju ke babak final kompetisi inovasi pelajar tingkat Jawa.</p>
+          </div>
+          <div class="news-row-img"><img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=400&q=80" alt=""></div>
+        </div>
+        <div class="news-row">
+          <div class="news-row-date">10 Maret 2026</div>
+          <div class="news-row-content">
+            <span class="news-tag">Prestasi · SMA</span>
+            <h4>5 Alumni SMA Islam Plus Al-Hanif Diterima di Universitas Luar Negeri</h4>
+            <p>Lulusan tahun 2025 berhasil mendapatkan offer dari NTU Singapura, University of Melbourne, dan beberapa universitas top dunia lainnya.</p>
+          </div>
+          <div class="news-row-img"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80" alt=""></div>
+        </div>
+        <div class="news-row">
+          <div class="news-row-date">28 Februari 2026</div>
+          <div class="news-row-content">
+            <span class="news-tag">Pengumuman</span>
+            <h4>Jadwal Ujian Tengah Semester Genap 2025/2026</h4>
+            <p>Pelaksanaan UTS akan berlangsung pada 17–22 Maret 2026 untuk semua jenjang. Jadwal lengkap dapat diunduh di portal siswa.</p>
+          </div>
+          <div class="news-row-img"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PPDB PAGE ============ -->
+<div class="page" id="ppdb">
+  <section class="ppdb-hero">
+    <div class="container">
+      <div class="ppdb-hero-grid">
+        <div>
+          <div class="section-eyebrow">PPDB 2026/2027</div>
+          <h1>Pendaftaran Peserta Didik <em>Baru</em> telah dibuka.</h1>
+          <p>Daftarkan putra-putri Anda untuk bergabung di lingkungan pendidikan yang menumbuhkan karakter, kompetensi, dan kepedulian.</p>
+          <button class="btn-primary" style="background: var(--gold); color: var(--green-900);">Mulai Pendaftaran Online →</button>
+        </div>
+        <div class="ppdb-countdown">
+          <div class="ppdb-countdown-label">Pendaftaran Ditutup Dalam</div>
+          <div class="countdown-grid">
+            <div class="countdown-box"><div class="countdown-num" id="cd-days">50</div><div class="countdown-unit">Hari</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd-hours">12</div><div class="countdown-unit">Jam</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd-mins">34</div><div class="countdown-unit">Menit</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd-secs">56</div><div class="countdown-unit">Detik</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ppdb-steps">
+    <div class="container">
+      <div class="section-eyebrow">Alur Pendaftaran</div>
+      <h2 class="section-title">Empat langkah <em>sederhana</em>.</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">Tahap 01</div>
+          <h4>Pendaftaran Online</h4>
+          <p>Isi formulir online di portal PPDB dan unggah dokumen yang dipersyaratkan.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">Tahap 02</div>
+          <h4>Tes & Wawancara</h4>
+          <p>Mengikuti tes akademik, observasi, dan wawancara orang tua sesuai jadwal.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">Tahap 03</div>
+          <h4>Pengumuman Hasil</h4>
+          <p>Hasil seleksi diumumkan melalui email dan portal PPDB sesuai timeline.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">Tahap 04</div>
+          <h4>Daftar Ulang</h4>
+          <p>Melakukan registrasi ulang dan pelunasan biaya sesuai ketentuan yang berlaku.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="requirements-section">
+    <div class="container">
+      <div class="section-eyebrow">Persyaratan Pendaftaran</div>
+      <h2 class="section-title">Apa yang perlu <em>disiapkan</em>.</h2>
+      <div class="req-grid">
+        <div>
+          <h4 class="serif" style="font-size: 22px; margin-bottom: 16px;">Dokumen Umum</h4>
+          <ul class="req-list">
+            <li><span class="req-check">✓</span><span>Akta Kelahiran (asli & fotokopi)</span></li>
+            <li><span class="req-check">✓</span><span>Kartu Keluarga terbaru</span></li>
+            <li><span class="req-check">✓</span><span>KTP orang tua / wali</span></li>
+            <li><span class="req-check">✓</span><span>Pas foto 3×4 sebanyak 4 lembar</span></li>
+            <li><span class="req-check">✓</span><span>Kartu BPJS / asuransi kesehatan</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="serif" style="font-size: 22px; margin-bottom: 16px;">Dokumen Akademik</h4>
+          <ul class="req-list">
+            <li><span class="req-check">✓</span><span>SD: Ijazah TK / surat keterangan</span></li>
+            <li><span class="req-check">✓</span><span>SMP: Rapor SD kelas 4–6 & SKL</span></li>
+            <li><span class="req-check">✓</span><span>SMA: Rapor SMP kelas 7–9 & SKL</span></li>
+            <li><span class="req-check">✓</span><span>Sertifikat prestasi (jika ada)</span></li>
+            <li><span class="req-check">✓</span><span>NISN (untuk SMP & SMA)</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ GALLERY PAGE ============ -->
+<div class="page" id="gallery">
+  <section class="gallery-intro">
+    <div class="container">
+      <div class="section-eyebrow">Galeri Kegiatan</div>
+      <h1 class="section-title">Momen <em>terbaik</em> di Al-Hanif.</h1>
+      <p class="section-lead">Potret-potret kegiatan belajar, prestasi, dan kebersamaan dari ketiga jenjang sekolah kami.</p>
+      <!-- ✏️ EDIT GALERI: ganti URL gambar src="..." dan caption.
+           Kelas tambahan: "large" (2x2), "tall" (1x2), "wide" (2x1) -->
+      <div class="gallery-grid">
+        <div class="gallery-item large"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80" alt=""><div class="gallery-caption">Festival Literasi SD 2025</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&q=80" alt=""><div class="gallery-caption">OSN Nasional</div></div>
+        <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt=""><div class="gallery-caption">Pembelajaran Tematik SD</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=400&q=80" alt=""><div class="gallery-caption">Lab Robotika SMP</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80" alt=""><div class="gallery-caption">Diskusi Kelas SMP</div></div>
+        <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80" alt=""><div class="gallery-caption">Upacara Wisuda SMA</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&q=80" alt=""><div class="gallery-caption">Kunjungan Edukasi</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80" alt=""><div class="gallery-caption">Bimbingan Karir SMA</div></div>
+        <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=80" alt=""><div class="gallery-caption">Gedung Sekolah</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80" alt=""><div class="gallery-caption">Perpustakaan</div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&q=80" alt=""><div class="gallery-caption">Olahraga Pagi</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT PAGE ============ -->
+<div class="page" id="contact">
+  <section class="contact-hero">
+    <div class="container">
+      <div class="section-eyebrow">Kontak</div>
+      <h1 class="section-title">Mari <em>terhubung</em> dengan kami.</h1>
+      <p class="section-lead">Untuk informasi pendaftaran, kunjungan sekolah, atau pertanyaan umum, silakan hubungi kami melalui kanal berikut.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <!-- ✏️ EDIT INFO KONTAK YAYASAN: alamat, telepon, email, sosmed -->
+          <div class="contact-block">
+            <div class="contact-label">Alamat Yayasan</div>
+            <div class="contact-value">Kp. Setu, RT.004/RW.001<br>Sindangmulya, Cibarusah</div>
+            <div class="contact-sub">Kab. Bekasi, Jawa Barat, Indonesia</div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-label">Telepon & WhatsApp</div>
+            <div class="contact-value">(021) 7890-1234</div>
+            <div class="contact-sub">WA: +62 812-3456-7890 · Senin–Jumat 07.00–16.00</div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">info@alhanif.sch.id</div>
+            <div class="contact-sub">ppdb@alhanif.sch.id (Pendaftaran)</div>
+          </div>
+          <div class="contact-block">
+            <div class="contact-label">Media Sosial</div>
+            <div class="contact-value">@ypi.darussunah</div>
+            <div class="contact-sub">Instagram · YouTube · TikTok</div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Kirim Pesan</h3>
+          <p>Kami akan merespons dalam 1×24 jam kerja.</p>
+          <div class="form-group"><label>Nama Lengkap</label><input type="text" placeholder="Nama Anda"></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="email@anda.com"></div>
+          <div class="form-group"><label>Topik</label>
+            <select><option>Informasi PPDB</option><option>Kunjungan Sekolah</option><option>Kerjasama</option><option>Lainnya</option></select>
+          </div>
+          <div class="form-group"><label>Pesan</label><textarea placeholder="Tuliskan pesan Anda..."></textarea></div>
+          <button class="btn-primary" style="width: 100%; justify-content: center;">Kirim Pesan →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo">
+          <div class="logo-mark">D</div>
+          <div class="logo-text" style="color: var(--cream);">Darussunah<small style="color: var(--gold);">YPI · Yayasan Pendidikan Islam</small></div>
+        </a>
+        <p class="tagline">Membangun generasi berakhlak mulia, cerdas, dan berdaya saing global melalui pendidikan Islam terpadu.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Jenjang</h5>
+        <ul>
+          <li><a onclick="showPage('sd')">SD Islam Plus Al-Hanif</a></li>
+          <li><a onclick="showPage('smp')">SMP Islam Plus Al-Hanif</a></li>
+          <li><a onclick="showPage('sma')">SMA Islam Plus Al-Hanif</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Informasi</h5>
+        <ul>
+          <li><a onclick="showPage('about')">Tentang Yayasan</a></li>
+          <li><a onclick="showPage('news')">Berita & Pengumuman</a></li>
+          <li><a onclick="showPage('gallery')">Galeri Kegiatan</a></li>
+          <li><a onclick="showPage('ppdb')">PPDB 2026/2027</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Hubungi Kami</h5>
+        <ul>
+          <li><a>(021) 7890-1234</a></li>
+          <li><a>info@alhanif.sch.id</a></li>
+          <li><a>@ypi.darussunah</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 YPI Darussunah. Hak cipta dilindungi.</div>
+      <div class="footer-bottom-links">
+        <a>Kebijakan Privasi</a>
+        <a>Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Countdown PPDB
+// ✏️ EDIT TANGGAL PENUTUPAN PPDB: ubah '2026-06-30T23:59:59' sesuai jadwal aktual
+function updateCountdown() {
+  const target = new Date('2026-06-30T23:59:59').getTime();
+  const now = new Date().getTime();
+  const diff = target - now;
+  if (diff < 0) return;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const secs = Math.floor((diff % (1000 * 60)) / 1000);
+  const d = document.getElementById('cd-days');
+  const h = document.getElementById('cd-hours');
+  const m = document.getElementById('cd-mins');
+  const s = document.getElementById('cd-secs');
+  if (d) d.textContent = String(days).padStart(2, '0');
+  if (h) h.textContent = String(hours).padStart(2, '0');
+  if (m) m.textContent = String(mins).padStart(2, '0');
+  if (s) s.textContent = String(secs).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// News filter (placeholder behavior)
+document.querySelectorAll('.news-filter').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.news-filter').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
